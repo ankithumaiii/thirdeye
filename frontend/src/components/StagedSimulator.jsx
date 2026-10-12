@@ -28,6 +28,7 @@ import {
   HeartHandshake
 } from 'lucide-react';
 import { SCENARIOS } from '../data/scenarios.js';
+import ScenarioVideos from './ScenarioVideos.jsx';
 
 const D_OPTIONS_CONFIG = {
   Distract: {
@@ -317,6 +318,8 @@ export default function StagedSimulator({
                 </div>
               </div>
             </div>
+
+            <ScenarioVideos scenario={scenario} />
 
             {/* Stage Actions */}
             <div className="stage-action-bar anim-step-5">

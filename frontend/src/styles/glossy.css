@@ -1,0 +1,555 @@
+html,
+body {
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(111, 78, 210, 0.16), transparent 34rem),
+    radial-gradient(ellipse at 90% 18%, rgba(31, 171, 187, 0.08), transparent 30rem),
+    var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  background-attachment: fixed;
+}
+
+.app-container {
+  background: transparent;
+}
+
+a {
+  color: var(--color-cyan);
+}
+
+.physio-navbar,
+.netflix-navbar {
+  background: rgba(13, 12, 25, 0.78);
+  border-bottom: 1px solid rgba(226, 218, 255, 0.1);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+}
+
+.physio-logo-badge {
+  background: linear-gradient(145deg, #d4c7ff, #8f76f5);
+  color: #171126;
+  box-shadow: 0 0 24px rgba(155, 131, 255, 0.4);
+}
+
+.physio-nav-item.active-pill,
+.netflix-nav-item.active {
+  background: linear-gradient(135deg, rgba(164, 139, 255, 0.32), rgba(117, 93, 220, 0.2));
+  border: 1px solid rgba(193, 174, 255, 0.25);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), 0 4px 18px rgba(111, 78, 210, 0.18);
+}
+
+.physio-nav-links {
+  flex-wrap: nowrap;
+}
+
+.physio-nav-item {
+  white-space: nowrap;
+}
+
+.physio-search-box,
+.physio-tension-pill,
+.physio-icon-btn,
+.physio-login-btn,
+.physio-lang-pill {
+  border: 1px solid rgba(226, 218, 255, 0.12);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.physio-search-box:focus-within,
+.physio-icon-btn:hover,
+.physio-login-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(193, 174, 255, 0.3);
+}
+
+.physio-cta-pill,
+.btn-netflix-play.red {
+  background: linear-gradient(135deg, #c2aeff 0%, #9274fa 52%, #7861e5 100%);
+  color: #140f24;
+  box-shadow: 0 8px 24px rgba(125, 97, 229, 0.32), inset 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.physio-cta-pill:hover,
+.btn-netflix-play.red:hover {
+  background: linear-gradient(135deg, #d2c4ff 0%, #a58eff 52%, #8d78f0 100%);
+  box-shadow: 0 12px 30px rgba(125, 97, 229, 0.42), inset 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.physio-cta-icon {
+  background: rgba(20, 15, 36, 0.15);
+  color: #171126;
+}
+
+.physio-mobile-drawer {
+  background: rgba(13, 12, 25, 0.96);
+  border: 1px solid var(--border-subtle);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+}
+
+.netflix-billboard {
+  isolation: isolate;
+  min-height: 590px;
+  background:
+    radial-gradient(ellipse at 78% 38%, rgba(145, 111, 255, 0.42), transparent 28rem),
+    radial-gradient(ellipse at 62% 78%, rgba(33, 191, 195, 0.14), transparent 26rem),
+    linear-gradient(115deg, #111023 4%, #1b1631 52%, #101828 100%);
+}
+
+.netflix-billboard::before {
+  content: '';
+  position: absolute;
+  width: min(48vw, 620px);
+  aspect-ratio: 1;
+  right: 4%;
+  top: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 211, 255, 0.13);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 50% 50%, rgba(155, 131, 255, 0.23), rgba(76, 56, 143, 0.04) 62%, transparent 70%);
+  box-shadow: inset 0 0 80px rgba(181, 158, 255, 0.12), 0 0 100px rgba(125, 97, 229, 0.2);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.netflix-billboard-backdrop {
+  background:
+    linear-gradient(90deg, rgba(12, 11, 24, 0.98) 0%, rgba(12, 11, 24, 0.78) 42%, rgba(12, 11, 24, 0.16) 100%),
+    linear-gradient(0deg, #090a14 0%, transparent 55%);
+}
+
+.billboard-top-pill {
+  border: 1px solid rgba(220, 211, 255, 0.25);
+  background: rgba(155, 131, 255, 0.25);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+}
+
+.billboard-title {
+  font-size: clamp(36px, 5vw, 62px);
+  letter-spacing: -0.045em;
+  text-shadow: 0 8px 36px rgba(0, 0, 0, 0.42);
+}
+
+.billboard-synopsis {
+  max-width: 600px;
+  color: #d4d0e2;
+}
+
+.btn-netflix-info {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.btn-netflix-info:hover {
+  background: rgba(255, 255, 255, 0.17);
+}
+
+.physio-subnav-bar {
+  max-width: 1320px;
+}
+
+.physio-subnav-title {
+  color: var(--text-primary);
+}
+
+.physio-subnav-pill {
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.physio-subnav-pill:hover,
+.physio-subnav-pill.active {
+  background: rgba(155, 131, 255, 0.17);
+  color: var(--text-primary);
+  border-color: rgba(193, 174, 255, 0.32);
+}
+
+.netflix-rows-section {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.netflix-card,
+.d-module-card,
+.netflix-stats-banner,
+.readiness-overview-card,
+.badge-card,
+.faq-accordion-item {
+  background: linear-gradient(145deg, rgba(28, 29, 49, 0.84), rgba(16, 18, 32, 0.9));
+  border: 1px solid rgba(226, 218, 255, 0.12);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.055), 0 12px 30px rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.netflix-card {
+  border-radius: var(--radius-lg);
+}
+
+.netflix-card:hover {
+  border-color: rgba(193, 174, 255, 0.42);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38), 0 0 28px rgba(125, 97, 229, 0.12);
+}
+
+.netflix-card-thumb::before {
+  background: linear-gradient(180deg, rgba(9, 10, 20, 0.08), rgba(9, 10, 20, 0.78));
+}
+
+.netflix-card-title,
+.d-module-name,
+.stat-label {
+  color: var(--text-primary);
+}
+
+.d-module-card {
+  border-top-width: 3px;
+  border-radius: var(--radius-md);
+}
+
+.d-module-card:hover {
+  background: linear-gradient(145deg, rgba(38, 35, 65, 0.96), rgba(20, 22, 39, 0.96));
+  border-color: rgba(193, 174, 255, 0.3);
+}
+
+.netflix-stats-banner {
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(155, 131, 255, 0.16), transparent 55%),
+    linear-gradient(145deg, rgba(28, 29, 49, 0.88), rgba(16, 18, 32, 0.92));
+}
+
+.stat-value {
+  background: linear-gradient(120deg, #d3c6ff, #8edff0);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-accordion-item {
+  border-radius: var(--radius-md);
+}
+
+.faq-accordion-item:hover {
+  background: rgba(34, 34, 57, 0.96);
+}
+
+.faq-accordion-trigger {
+  color: var(--text-primary);
+}
+
+.faq-accordion-content {
+  color: var(--text-secondary);
+}
+
+.netflix-footer {
+  background: rgba(10, 10, 19, 0.68);
+  border-top-color: var(--border-subtle);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.footer-link-item:hover {
+  color: var(--text-primary);
+}
+
+.footer-disclaimer-note {
+  color: var(--text-muted);
+}
+
+.modal-overlay {
+  background: rgba(5, 5, 12, 0.74);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.modal-dialog,
+.console-panel {
+  background: linear-gradient(145deg, rgba(27, 28, 47, 0.96), rgba(16, 18, 32, 0.96));
+  border: 1px solid rgba(226, 218, 255, 0.13);
+  box-shadow: var(--shadow-lg), inset 0 1px rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+}
+
+.catalog-filter-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.catalog-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.staged-simulator-root {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(111, 78, 210, 0.12), transparent 40rem),
+    transparent;
+}
+
+.staged-stepper-wrap,
+.stage-card,
+.scenario-select-card,
+.briefing-box,
+.briefing-role-callout,
+.briefing-safety-reminder,
+.encounter-metadata-bar,
+.encounter-narrative-content,
+.decision-option-card,
+.decision-option-card:hover,
+.decision-option-card.selected {
+  background: linear-gradient(145deg, rgba(27, 28, 47, 0.9), rgba(16, 18, 32, 0.92));
+  border-color: rgba(226, 218, 255, 0.12);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.staged-stepper-wrap {
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.stepper-step.active {
+  background: linear-gradient(135deg, rgba(164, 139, 255, 0.3), rgba(117, 93, 220, 0.2));
+  border: 1px solid rgba(193, 174, 255, 0.2);
+}
+
+.stepper-step.completed {
+  background: var(--color-emerald-bg);
+}
+
+.briefing-role-callout {
+  background: rgba(155, 131, 255, 0.1);
+  border-color: var(--color-indigo-border);
+}
+
+.briefing-safety-reminder {
+  background: rgba(255, 196, 107, 0.09);
+  border-color: var(--color-amber-border);
+}
+
+.encounter-narrative-content {
+  color: var(--text-primary);
+  border-left-color: var(--physio-purple-pill);
+}
+
+.scenario-select-card:hover,
+.decision-option-card:hover {
+  border-color: rgba(193, 174, 255, 0.38);
+}
+
+.scenario-videos-panel {
+  padding: 22px;
+  border: 1px solid rgba(226, 218, 255, 0.12);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(155, 131, 255, 0.13), transparent 55%),
+    linear-gradient(145deg, rgba(27, 28, 47, 0.88), rgba(16, 18, 32, 0.94));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.06), 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.scenario-videos-heading,
+.scenario-videos-heading-copy,
+.scenario-videos-loading,
+.scenario-video-caption {
+  display: flex;
+  align-items: center;
+}
+
+.scenario-videos-heading {
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.scenario-videos-heading-copy {
+  gap: 12px;
+}
+
+.scenario-videos-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(193, 174, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(155, 131, 255, 0.14);
+  color: #c8b8ff;
+}
+
+.scenario-videos-heading h2 {
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.scenario-videos-heading p,
+.scenario-videos-message,
+.scenario-videos-disclaimer {
+  margin: 2px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.scenario-videos-loading {
+  gap: 7px;
+  color: #c8b8ff;
+  font-size: 12px;
+}
+
+.scenario-videos-loading svg {
+  animation: scenario-video-spin 1s linear infinite;
+}
+
+@keyframes scenario-video-spin {
+  to { transform: rotate(360deg); }
+}
+
+.scenario-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 14px;
+}
+
+.scenario-video-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(226, 218, 255, 0.12);
+  border-radius: var(--radius-md);
+  background: rgba(7, 8, 17, 0.58);
+}
+
+.scenario-video-frame {
+  aspect-ratio: 16 / 9;
+  background: #080910;
+}
+
+.scenario-video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.scenario-video-caption {
+  min-height: 48px;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+}
+
+.scenario-video-title {
+  overflow: hidden;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scenario-video-caption a {
+  display: grid;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9px;
+  color: #c8b8ff;
+}
+
+.scenario-video-caption a:hover {
+  background: rgba(155, 131, 255, 0.16);
+  text-decoration: none;
+}
+
+.scenario-videos-disclaimer {
+  margin-top: 14px;
+}
+
+.scenario-select-card.selected,
+.decision-option-card.selected {
+  border-color: var(--physio-purple-pill);
+  box-shadow: 0 0 0 1px rgba(155, 131, 255, 0.55), 0 14px 36px rgba(125, 97, 229, 0.16);
+}
+
+@media (max-width: 1280px) and (min-width: 901px) {
+  .physio-navbar {
+    padding: 0 18px;
+    gap: 8px;
+  }
+
+  .physio-nav-left {
+    gap: 12px;
+  }
+
+  .physio-nav-links {
+    gap: 0;
+  }
+
+  .physio-nav-item {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  .physio-nav-right {
+    gap: 7px;
+  }
+
+  .physio-search-input {
+    width: 105px;
+  }
+
+  .physio-nav-right > .physio-login-btn,
+  .physio-nav-right > .physio-lang-pill,
+  .physio-nav-right > .physio-cta-pill {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .netflix-billboard {
+    min-height: 510px;
+  }
+
+  .netflix-billboard::before {
+    width: 72vw;
+    right: -25%;
+    top: 22%;
+    opacity: 0.7;
+  }
+
+  .netflix-billboard-backdrop {
+    background:
+      linear-gradient(90deg, rgba(12, 11, 24, 0.96), rgba(12, 11, 24, 0.5)),
+      linear-gradient(0deg, #090a14 0%, transparent 70%);
+  }
+}
+
+@media (max-width: 600px) {
+  .billboard-title {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .billboard-meta-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .billboard-action-buttons {
+    flex-wrap: wrap;
+  }
+
+  .netflix-rows-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}

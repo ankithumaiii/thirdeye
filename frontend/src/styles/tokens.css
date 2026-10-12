@@ -1,58 +1,58 @@
 :root {
-  /* Physiopedia Brand Palette & Modern Crisp Safety System */
-  --physio-plum: #281034;
-  --physio-plum-dark: #1d0926;
-  --physio-plum-light: #3d1c4e;
-  --physio-purple-pill: #4C34D3;
-  --physio-purple-hover: #5A42E8;
-  --physio-coral: #FF4767;
-  --physio-coral-hover: #E63554;
+  /* Soft rose, warm ivory, and calm, readable accents */
+  --physio-plum: #a84e72;
+  --physio-plum-dark: #71324d;
+  --physio-plum-light: #f8dce7;
+  --physio-purple-pill: #a84e72;
+  --physio-purple-hover: #8f3f61;
+  --physio-coral: #c65d83;
+  --physio-coral-hover: #ae466e;
 
-  /* Surfaces & Backgrounds (Clean, crisp, high-readability aesthetic) */
-  --bg-primary: #F8F7FA;
-  --bg-main: #F8F7FA;
-  --bg-panel: #FFFFFF;
-  --bg-elevated: #FFFFFF;
-  --bg-surface: #F3EEF8;
-  --bg-surface-hover: #EBE3F2;
-  --bg-surface-active: #E2D7EB;
+  /* Light, low-glare surfaces */
+  --bg-primary: #fff3f8;
+  --bg-main: #fff3f8;
+  --bg-panel: rgba(255, 255, 255, 0.94);
+  --bg-elevated: #ffffff;
+  --bg-surface: rgba(248, 220, 231, 0.52);
+  --bg-surface-hover: rgba(239, 194, 211, 0.62);
+  --bg-surface-active: rgba(168, 78, 114, 0.12);
 
-  --border-subtle: #E8E2EE;
-  --border-highlight: #D2C7DD;
-  --border-focus: #4C34D3;
+  --border-subtle: #f0dce4;
+  --border-highlight: #dfafc1;
+  --border-focus: #a84e72;
 
-  --text-primary: #1F0E29;
-  --text-secondary: #5E526B;
-  --text-muted: #8E829B;
+  --text-primary: #332631;
+  --text-secondary: #665765;
+  --text-muted: #887987;
   --text-inverse: #FFFFFF;
 
-  /* Restrained Status Accents */
-  --accent-safe: #059669;
-  --color-emerald: #059669;
-  --color-emerald-bg: #ECFDF5;
-  --color-emerald-border: #A7F3D0;
+  /* Calm status accents with pale supporting surfaces */
+  --accent-safe: #287a5b;
+  --color-emerald: #287a5b;
+  --color-emerald-bg: #e8f5ee;
+  --color-emerald-border: #b9dfca;
 
-  --accent-caution: #D97706;
-  --color-amber: #D97706;
-  --color-amber-bg: #FFFBEB;
-  --color-amber-border: #FDE68A;
+  --accent-caution: #936219;
+  --color-amber: #936219;
+  --color-amber-bg: #fff4db;
+  --color-amber-border: #efd59a;
 
-  --accent-danger: #E11D48;
-  --color-crimson: #E11D48;
-  --color-crimson-bg: #FFF1F2;
-  --color-crimson-border: #FECDD3;
+  --accent-danger: #b94762;
+  --color-crimson: #b94762;
+  --color-crimson-bg: #fbe9ed;
+  --color-crimson-border: #edbdc8;
 
-  --color-cyan: #0284C7;
-  --color-cyan-bg: #F0F9FF;
-  --color-cyan-border: #BAE6FD;
+  --color-cyan: #28687a;
+  --color-cyan-bg: #e5f3f6;
+  --color-cyan-border: #badde5;
 
-  --color-indigo: #4C34D3;
-  --color-indigo-bg: #EEF2FF;
-  --color-indigo-border: #C7D2FE;
+  --color-indigo: #76516f;
+  --color-indigo-bg: #f3eaf2;
+  --color-indigo-border: #dfc9dc;
 
   /* Legacy Netflix alias for compatibility */
-  --netflix-red: #4C34D3;
-  --netflix-red-hover: #5A42E8;
+  --netflix-red: #a84e72;
+  --netflix-red-hover: #8f3f61;
 
   /* Primary Typography: POPPINS (Reference Image exact font) */
   --font-sans: 'Poppins', 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -69,10 +69,10 @@
   --text-btn: 14px;
 
   /* Elevation & Shadows */
-  --shadow-sm: 0 1px 3px rgba(40, 16, 52, 0.05);
-  --shadow-md: 0 4px 12px rgba(40, 16, 52, 0.08), 0 2px 4px rgba(40, 16, 52, 0.04);
-  --shadow-lg: 0 12px 28px -4px rgba(40, 16, 52, 0.12);
-  --shadow-panel: 0 0 0 1px var(--border-subtle), 0 6px 20px rgba(40, 16, 52, 0.06);
+  --shadow-sm: 0 4px 14px rgba(91, 44, 64, 0.07);
+  --shadow-md: 0 10px 28px rgba(91, 44, 64, 0.1), 0 2px 8px rgba(168, 78, 114, 0.05);
+  --shadow-lg: 0 20px 48px rgba(91, 44, 64, 0.16);
+  --shadow-panel: 0 0 0 1px var(--border-subtle), 0 14px 36px rgba(91, 44, 64, 0.08);
 
   /* Radius */
   --radius-xs: 6px;

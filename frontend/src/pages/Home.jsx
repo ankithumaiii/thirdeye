@@ -15,6 +15,7 @@ import {
   Activity
 } from 'lucide-react';
 import { SCENARIOS } from '../data/scenarios.js';
+import ScenarioCardMedia from '../components/ScenarioCardMedia.jsx';
 
 export default function Home({
   onPlayScenario,
@@ -169,24 +170,7 @@ export default function Home({
                   tabIndex={0}
                   aria-label={`Play ${s.title}`}
                 >
-                  <div
-                    className="netflix-card-thumb"
-                    style={{
-                      backgroundImage:
-                        idx === 0
-                          ? 'radial-gradient(circle at 50% 50%, #3e1b4f 0%, #1e0928 100%)'
-                          : idx === 1
-                          ? 'radial-gradient(circle at 50% 50%, #2a1b4f 0%, #100928 100%)'
-                          : 'radial-gradient(circle at 50% 50%, #4f251b 0%, #280f09 100%)'
-                    }}
-                  >
-                    <span className="thumb-tag-badge">ONLINE SCENARIO</span>
-                    <div className="thumb-overlay-play">
-                      <div className="play-circle-icon">
-                        <Play size={20} fill="currentColor" />
-                      </div>
-                    </div>
-                  </div>
+                  <ScenarioCardMedia scenario={s} badge="ONLINE SCENARIO" />
 
                   <div className="netflix-card-body">
                     <h3 className="netflix-card-title">{s.title}</h3>
@@ -323,17 +307,10 @@ export default function Home({
               className="netflix-card"
               onClick={() => onPlayScenario('campus')}
             >
-              <div
-                className="netflix-card-thumb"
-                style={{ background: 'radial-gradient(circle at 50% 50%, #2b1f3a 0%, #141414 100%)' }}
-              >
-                <span className="thumb-tag-badge">CAMPUS SERIES</span>
-                <div className="thumb-overlay-play">
-                  <div className="play-circle-icon">
-                    <Play size={20} fill="currentColor" />
-                  </div>
-                </div>
-              </div>
+              <ScenarioCardMedia
+                scenario={SCENARIOS.find((scenario) => scenario.id === 'campus')}
+                badge="CAMPUS SERIES"
+              />
               <div className="netflix-card-body">
                 <h3 className="netflix-card-title">Library Corridor Obstruction</h3>
                 <div className="netflix-card-meta">
@@ -348,17 +325,10 @@ export default function Home({
               className="netflix-card"
               onClick={() => onPlayScenario('bus_stop')}
             >
-              <div
-                className="netflix-card-thumb"
-                style={{ background: 'radial-gradient(circle at 50% 50%, #1f332b 0%, #141414 100%)' }}
-              >
-                <span className="thumb-tag-badge">NIGHT SERIES</span>
-                <div className="thumb-overlay-play">
-                  <div className="play-circle-icon">
-                    <Play size={20} fill="currentColor" />
-                  </div>
-                </div>
-              </div>
+              <ScenarioCardMedia
+                scenario={SCENARIOS.find((scenario) => scenario.id === 'bus_stop')}
+                badge="NIGHT SERIES"
+              />
               <div className="netflix-card-body">
                 <h3 className="netflix-card-title">Street Bus Stop Haven</h3>
                 <div className="netflix-card-meta">
@@ -375,7 +345,7 @@ export default function Home({
             >
               <div
                 className="netflix-card-thumb"
-                style={{ background: 'radial-gradient(circle at 50% 50%, #3a2b1f 0%, #141414 100%)' }}
+                style={{ background: 'radial-gradient(circle at 50% 50%, #f7e2c6 0%, #edceb1 100%)' }}
               >
                 <span className="thumb-tag-badge">MASTERCLASS</span>
                 <div className="thumb-overlay-play">
@@ -433,7 +403,7 @@ export default function Home({
       {/* 3. NETFLIX FOOTER */}
       <footer className="netflix-footer">
         <div className="footer-content-wrap">
-          <div style={{ color: '#ffffff', fontSize: '14px', fontWeight: 700 }}>
+          <div style={{ color: 'var(--text-primary)', fontSize: '14px', fontWeight: 700 }}>
             Questions? Contact ThirdEye Campus Safety & Student Welfare Division
           </div>
 
@@ -457,7 +427,7 @@ export default function Home({
             In acute emergencies or imminent physical threat, immediately contact local emergency response (911 / 112 / Campus Security).
           </div>
 
-          <div style={{ fontSize: '11px', color: '#555555' }}>
+          <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
             © 2026 ThirdEye Crisis Engine. Built for civil de-escalation training.
           </div>
         </div>
@@ -494,7 +464,7 @@ export default function Home({
                 </span>
               </div>
 
-              <p style={{ fontSize: '13.5px', lineHeight: 1.6, color: '#e5e5e5' }}>
+              <p style={{ fontSize: '13.5px', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
                 {selectedScenarioInfo.scenes.metro_entry?.narrative ||
                   selectedScenarioInfo.scenes.campus_entry?.narrative ||
                   selectedScenarioInfo.scenes.bus_entry?.narrative}
@@ -506,8 +476,8 @@ export default function Home({
                 </strong>
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px', padding: 0 }}>
                   {Object.entries(selectedScenarioInfo.contextLabels).map(([d, label]) => (
-                    <li key={d} style={{ fontSize: '12px', color: '#b3b3b3' }}>
-                      <strong style={{ color: '#ffffff' }}>{d}:</strong> {label}
+                    <li key={d} style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                      <strong style={{ color: 'var(--text-primary)' }}>{d}:</strong> {label}
                     </li>
                   ))}
                 </ul>

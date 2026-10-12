@@ -193,20 +193,20 @@ export default function FrameworkPage({ onPlayScenario }) {
           </button>
         </div>
 
-        <p style={{ fontSize: '14.5px', color: '#e5e5e5', lineHeight: 1.6, margin: 0 }}>
+        <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
           {current.summary}
         </p>
 
         {/* Tactics & Dos/Donts Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
           {/* Tactical Moves */}
-          <div style={{ background: '#202020', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-            <h3 style={{ fontSize: '13px', fontWeight: 700, color: '#ffffff', textTransform: 'uppercase', marginBottom: '10px' }}>
+          <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
+            <h3 style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', marginBottom: '10px' }}>
               Key Interventions
             </h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {current.tactics.map((t, idx) => (
-                <li key={idx} style={{ fontSize: '12.5px', color: '#b3b3b3', display: 'flex', gap: '8px' }}>
+                <li key={idx} style={{ fontSize: '12.5px', color: 'var(--text-secondary)', display: 'flex', gap: '8px' }}>
                   <span style={{ color: current.color }}>•</span>
                   <span>{t}</span>
                 </li>
@@ -215,14 +215,14 @@ export default function FrameworkPage({ onPlayScenario }) {
           </div>
 
           {/* Dos */}
-          <div style={{ background: '#202020', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+          <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
             <h3 style={{ fontSize: '13px', fontWeight: 700, color: 'var(--color-emerald)', textTransform: 'uppercase', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <CheckCircle2 size={14} />
               <span>Recommended Practices</span>
             </h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {current.dos.map((d, idx) => (
-                <li key={idx} style={{ fontSize: '12.5px', color: '#b3b3b3', display: 'flex', gap: '8px' }}>
+                <li key={idx} style={{ fontSize: '12.5px', color: 'var(--text-secondary)', display: 'flex', gap: '8px' }}>
                   <CheckCircle2 size={13} style={{ color: 'var(--color-emerald)', flexShrink: 0, marginTop: '2px' }} />
                   <span>{d}</span>
                 </li>
@@ -231,14 +231,14 @@ export default function FrameworkPage({ onPlayScenario }) {
           </div>
 
           {/* Donts */}
-          <div style={{ background: '#202020', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+          <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
             <h3 style={{ fontSize: '13px', fontWeight: 700, color: 'var(--netflix-red)', textTransform: 'uppercase', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <XCircle size={14} />
               <span>Critical Hazards</span>
             </h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {current.donts.map((d, idx) => (
-                <li key={idx} style={{ fontSize: '12.5px', color: '#b3b3b3', display: 'flex', gap: '8px' }}>
+                <li key={idx} style={{ fontSize: '12.5px', color: 'var(--text-secondary)', display: 'flex', gap: '8px' }}>
                   <XCircle size={13} style={{ color: 'var(--netflix-red)', flexShrink: 0, marginTop: '2px' }} />
                   <span>{d}</span>
                 </li>

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import request from 'supertest';
 import app from '../src/app.js';
+import { ENV } from '../src/config/env.js';
 
 describe('Backend API Endpoints Integration', () => {
   it('GET /api/health returns health status', async () => {
@@ -33,6 +34,25 @@ describe('Backend API Endpoints Integration', () => {
 
   it('GET /api/scenarios/:id returns 404 for unknown scenario', async () => {
     const res = await request(app).get('/api/scenarios/unknown_scene');
+    expect(res.status).toBe(404);
+    expect(res.body.error).toBe('SCENARIO_NOT_FOUND');
+  });
+
+  it('GET /api/scenarios/:id/videos requires Gemini configuration', async () => {
+    const originalApiKey = ENV.GEMINI_API_KEY;
+    ENV.GEMINI_API_KEY = '';
+
+    try {
+      const res = await request(app).get('/api/scenarios/metro/videos');
+      expect(res.status).toBe(503);
+      expect(res.body.error).toBe('GEMINI_NOT_CONFIGURED');
+    } finally {
+      ENV.GEMINI_API_KEY = originalApiKey;
+    }
+  });
+
+  it('GET /api/scenarios/:id/videos returns 404 for unknown scenarios', async () => {
+    const res = await request(app).get('/api/scenarios/unknown_scene/videos');
     expect(res.status).toBe(404);
     expect(res.body.error).toBe('SCENARIO_NOT_FOUND');
   });
