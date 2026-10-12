@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Play, Filter, Compass, AlertTriangle, ShieldCheck, MapPin, Users } from 'lucide-react';
 import { SCENARIOS } from '../data/scenarios.js';
+import ScenarioCardMedia from '../components/ScenarioCardMedia.jsx';
 
 export default function ScenariosPage({
   onPlayScenario,
@@ -71,25 +72,7 @@ export default function ScenariosPage({
               role="button"
               tabIndex={0}
             >
-              <div
-                className="netflix-card-thumb"
-                style={{
-                  height: '180px',
-                  backgroundImage:
-                    s.id === 'metro'
-                      ? 'radial-gradient(circle at 50% 50%, #2b1d1d 0%, #141414 100%)'
-                      : s.id === 'campus'
-                      ? 'radial-gradient(circle at 50% 50%, #1d252b 0%, #141414 100%)'
-                      : 'radial-gradient(circle at 50% 50%, #2b251d 0%, #141414 100%)'
-                }}
-              >
-                <span className="thumb-tag-badge">SCENARIO {idx + 1}</span>
-                <div className="thumb-overlay-play">
-                  <div className="play-circle-icon">
-                    <Play size={22} fill="currentColor" />
-                  </div>
-                </div>
-              </div>
+              <ScenarioCardMedia scenario={s} badge={`SCENARIO ${idx + 1}`} height="180px" />
 
               <div className="netflix-card-body">
                 <h3 className="netflix-card-title">{s.title}</h3>

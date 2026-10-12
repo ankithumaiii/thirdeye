@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/tokens.css';
 import './styles/global.css';
 import './styles/layout.css';
 import './styles/components.css';
 import './styles/netflix.css';
 import './styles/staged-simulator.css';
+import './styles/glossy.css';
+import './styles/soft-ui.css';
 
 import { useSimulation } from './hooks/useSimulation.js';
 import NetflixNavbar from './components/NetflixNavbar.jsx';
@@ -62,6 +64,87 @@ export default function App({ initialTab = 'home', simulatorViewMode = 'staged' 
   const [viewMode, setViewMode] = useState(simulatorViewMode); // 'staged' (guided progressive workflow) or 'console' (full incident room)
 
   const isTensionCritical = currentState.tension >= 70;
+
+  useEffect(() => {
+    const supportsFinePointer = window.matchMedia?.('(pointer: fine)').matches;
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    if (!supportsFinePointer || prefersReducedMotion) return undefined;
+
+    let targetX = 0;
+    let targetY = 0;
+    let pointerX = 0;
+    let pointerY = 0;
+    let animationFrameId = null;
+
+    const animateCursorPosition = () => {
+      pointerX += (targetX - pointerX) * 0.18;
+      pointerY += (targetY - pointerY) * 0.18;
+      document.documentElement.style.setProperty('--pointer-x', `${pointerX}px`);
+      document.documentElement.style.setProperty('--pointer-y', `${pointerY}px`);
+
+      if (Math.abs(targetX - pointerX) < 0.5 && Math.abs(targetY - pointerY) < 0.5) {
+        pointerX = targetX;
+        pointerY = targetY;
+        document.documentElement.style.setProperty('--pointer-x', `${pointerX}px`);
+        document.documentElement.style.setProperty('--pointer-y', `${pointerY}px`);
+        animationFrameId = null;
+        return;
+      }
+
+      animationFrameId = window.requestAnimationFrame(animateCursorPosition);
+    };
+
+    const updateCursorPosition = (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+
+      if (animationFrameId === null) {
+        pointerX = targetX;
+        pointerY = targetY;
+        animationFrameId = window.requestAnimationFrame(animateCursorPosition);
+      }
+    };
+
+    window.addEventListener('pointermove', updateCursorPosition, { passive: true });
+    return () => {
+      window.removeEventListener('pointermove', updateCursorPosition);
+      if (animationFrameId !== null) {
+        window.cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (
+      !('IntersectionObserver' in window) ||
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return undefined;
+    }
+
+    const revealTargets = document.querySelectorAll(
+      '.netflix-card, .d-module-card, .netflix-stats-banner, .netflix-row-wrap, .netflix-faq-section'
+    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+
+    revealTargets.forEach((element, index) => {
+      element.classList.add('scroll-reveal');
+      element.classList.remove('is-visible');
+      element.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 55}ms`);
+      element.style.setProperty('--reveal-x', index % 2 === 0 ? '-28px' : '28px');
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [currentTab]);
 
   const handleLaunchScenarioFromAnywhere = (scenarioId) => {
     initializeScenario(scenarioId);

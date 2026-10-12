@@ -65,6 +65,33 @@ export async function fetchScenarios() {
 }
 
 /**
+ * Fetch Gemini-grounded public video results for a scenario.
+ */
+export async function fetchScenarioVideos(scenarioId, { signal } = {}) {
+  const res = await fetch(
+    `${API_BASE}/scenarios/${encodeURIComponent(scenarioId)}/videos`,
+    { signal }
+  );
+
+  let data;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error('The video search service returned an invalid response.');
+  }
+
+  if (!res.ok) {
+    throw new Error(data?.message || `Video search failed (HTTP ${res.status}).`);
+  }
+
+  if (!Array.isArray(data?.videos)) {
+    throw new Error('The video search service returned an invalid response.');
+  }
+
+  return data.videos;
+}
+
+/**
  * Start simulation
  */
 export async function startSimulationApi(scenarioId) {

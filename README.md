@@ -29,7 +29,8 @@ BRAVESTEPS/
 │   │   ├── config/env.js            # Environment loader & validation
 │   │   ├── data/scenarios.js        # High-fidelity scenarios & branching scenes
 │   │   ├── services/
-│   │   │   ├── gemini.service.js    # Official Google Gemini SDK integration
+│   │   │   ├── gemini.service.js    # Gemini-backed intervention evaluation
+│   │   │   ├── scenarioVideos.service.js # Gemini Google Search-grounded YouTube results
 │   │   │   ├── heuristic.service.js # Local fallback classifier (English & Hinglish)
 │   │   │   └── simulation.service.js# Deterministic state machine & readiness index
 │   │   ├── schemas/simulation.schemas.js # Zod runtime request/response schemas
@@ -51,7 +52,7 @@ BRAVESTEPS/
 
 - **Frontend**: React 18, Vite 6, Pure CSS design tokens (No Tailwind CSS, no utility frameworks), Lucide React icons, Web Audio API procedural sound synthesis.
 - **Backend**: Node.js (ES modules `"type": "module"`), Express, CORS, dotenv, Zod schema validation.
-- **AI Integration**: Google Gemini API via official `@google/generative-ai` SDK, configurable model (`gemini-2.5-flash`), structured JSON response validation with Zod.
+- **AI Integration**: Google Gemini API for structured intervention evaluation and Google Search-grounded YouTube recommendations in each scenario briefing. Video search results are restricted to validated YouTube links and embedded with privacy-enhanced YouTube embeds.
 - **Local Fallback**: Transparent heuristic engine classifying English and Hinglish expressions with 100% zero-crash offline autonomy.
 - **Deterministic Simulation Engine**: Clamped bounded telemetry (0–100) for Tension, Victim Safety Index, and Bystander Exposure. Transparent mathematical Readiness Index calculation.
 
@@ -67,12 +68,14 @@ cp backend/.env.example backend/.env
 
 | Variable | Requirement | Description | Default |
 |---|---|---|---|
-| `GEMINI_API_KEY` | **Optional** | Google Gemini API Key. If omitted, ThirdEye runs in **Tactical Offline Simulation** mode using the local heuristic classifier. | `""` |
+| `GEMINI_API_KEY` | **Optional** | Google Gemini API key. If omitted, simulation evaluation uses the local heuristic classifier and related-video search is disabled. | `""` |
 | `GEMINI_MODEL` | Optional | Supported Gemini model name. | `gemini-2.5-flash` |
 | `PORT` | Optional | Backend HTTP server port. | `5000` |
 | `FRONTEND_ORIGIN` | Optional | Allowed CORS frontend origin. | `http://localhost:5173` |
 | `MONGODB_URI` | Optional | Optional database URI. State operates in-memory by default. | `""` |
 | `AI_FALLBACK_ENABLED` | Optional | Transparently switches to heuristic engine if API times out or reaches quota. | `true` |
+
+Scenario briefings request related video results from `GET /api/scenarios/:id/videos`. This uses Gemini's Google Search grounding and requires a Gemini API key; no separate YouTube API key is needed. If the search is unavailable or returns no embeddable YouTube results, the briefing remains usable without videos.
 
 ---
 

@@ -92,7 +92,7 @@ export default function ReadinessPage({
 
       {/* 5-D Utilization Profile */}
       <div className="console-panel" style={{ padding: '20px' }}>
-        <h2 style={{ fontSize: '16px', fontWeight: 800, color: '#ffffff', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+        <h2 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Tactical Distribution // 5-D Decisions
         </h2>
 
@@ -109,10 +109,10 @@ export default function ReadinessPage({
 
             return (
               <div key={key} className="behavior-row">
-                <span className="behavior-label" style={{ width: '80px', color: '#ffffff' }}>
+                <span className="behavior-label" style={{ width: '80px', color: 'var(--text-primary)' }}>
                   {label}
                 </span>
-                <div className="behavior-bar-track" style={{ height: '8px', background: '#222222' }}>
+                <div className="behavior-bar-track" style={{ height: '8px', background: 'var(--physio-plum-light)' }}>
                   <div
                     className="behavior-bar-fill"
                     style={{
@@ -130,7 +130,7 @@ export default function ReadinessPage({
 
       {/* Badges / Credentials */}
       <div>
-        <h2 style={{ fontSize: '16px', fontWeight: 800, color: '#ffffff', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+        <h2 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Earned Crisis Training Credentials
         </h2>
 
@@ -141,12 +141,12 @@ export default function ReadinessPage({
               className="badge-card"
               style={{
                 opacity: b.earned ? 1 : 0.45,
-                borderColor: b.earned ? 'rgba(70, 211, 105, 0.3)' : 'rgba(255, 255, 255, 0.08)'
+                borderColor: b.earned ? 'var(--color-emerald-border)' : 'var(--border-subtle)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Award size={18} style={{ color: b.earned ? 'var(--color-emerald)' : 'var(--text-muted)' }} />
-                <strong style={{ fontSize: '13px', color: '#ffffff' }}>{b.title}</strong>
+                <strong style={{ fontSize: '13px', color: 'var(--text-primary)' }}>{b.title}</strong>
               </div>
               <p style={{ fontSize: '11.5px', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.45 }}>
                 {b.desc}

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { SCENARIOS, getScenarioById } from '../data/scenarios.js';
+import { findScenarioVideos } from '../services/scenarioVideos.service.js';
 
 const router = Router();
 
@@ -22,6 +23,24 @@ router.get('/', (req, res) => {
     count: summaries.length,
     scenarios: summaries
   });
+});
+
+// Find publicly available, Google Search-grounded YouTube videos for a scenario.
+router.get('/:id/videos', async (req, res, next) => {
+  const scenario = getScenarioById(req.params.id);
+  if (!scenario) {
+    return res.status(404).json({
+      error: 'SCENARIO_NOT_FOUND',
+      message: `Scenario '${req.params.id}' does not exist.`
+    });
+  }
+
+  try {
+    const videos = await findScenarioVideos(scenario);
+    res.json({ scenarioId: scenario.id, videos });
+  } catch (error) {
+    next(error);
+  }
 });
 
 // GET single scenario definition
